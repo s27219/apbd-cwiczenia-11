@@ -108,13 +108,6 @@ public class DbService : IDbService
     {
         return await _context.Users.FirstOrDefaultAsync(u => u.Login == login);
     }
-
-    /*public async Task ChangeRefreshToken(User user, string newToken, DateTime newTokenExp)
-    {
-        user.RefreshToken = newToken;
-        user.RefreshTokenExp = newTokenExp;
-        _context.SaveChangesAsync();
-    }*/
     
     public async Task UpdateUser(User user)
     {

@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using PrescriptionApp.DTOs;
 using PrescriptionApp.Services;
@@ -14,7 +15,7 @@ public class PatientsController : ControllerBase
         _dbService = dbService;
     }
     
-    
+    [Authorize]
     [HttpGet("{idPatient}")]
     public async Task<ActionResult<GetPatientDto>> GetPatient(int idPatient)
     {

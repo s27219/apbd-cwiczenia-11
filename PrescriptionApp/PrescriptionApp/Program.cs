@@ -26,8 +26,8 @@ builder.Services.AddAuthentication(options =>
 {
     opt.TokenValidationParameters = new TokenValidationParameters
     {
-        ValidateIssuer = true,   //by who
-        ValidateAudience = true, //for whom
+        ValidateIssuer = true,
+        ValidateAudience = true,
         ValidateLifetime = true,
         ClockSkew = TimeSpan.FromMinutes(2),
         ValidIssuer = builder.Configuration["JWT:Issuer"],
@@ -50,8 +50,8 @@ builder.Services.AddAuthentication(options =>
 {
     opt.TokenValidationParameters = new TokenValidationParameters
     {
-        ValidateIssuer = true,   //by who
-        ValidateAudience = true, //for whom
+        ValidateIssuer = true,
+        ValidateAudience = true,
         ValidateLifetime = false,
         ClockSkew = TimeSpan.FromMinutes(2),
         ValidIssuer = builder.Configuration["JWT:Issuer"],
@@ -71,7 +71,6 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseMiddleware<ErrorHandlingMiddleware>();
-//app.UseMiddleware<BasicAuthMiddleware>();
 
 app.UseHttpsRedirection();
 

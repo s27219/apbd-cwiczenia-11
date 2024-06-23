@@ -100,9 +100,7 @@ public class AuthenticationController : ControllerBase
         });
     }
     
-    //[Authorize(AuthenticationSchemes = "IgnoreTokenExpirationScheme")]
-    //[HttpPost("refresh")]
-    [Authorize]
+    [Authorize(AuthenticationSchemes = "IgnoreTokenExpirationScheme")]
     [HttpPost("refresh")]
     public async Task<IActionResult> Refresh(RefreshTokenDto refreshTokenDto)
     {
@@ -122,7 +120,6 @@ public class AuthenticationController : ControllerBase
             new Claim(ClaimTypes.Name, user.Login),
             new Claim(ClaimTypes.Role, "user"),
             new Claim(ClaimTypes.Role, "admin")
-            // Add additional data here
         };
 
         var jwtConfig = _configuration.GetSection("JWT");
